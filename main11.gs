@@ -4,7 +4,10 @@ function initSheet() {
   var i;
   var startTime = new Date();
   var scores = [];
-
+  
+  if (Browser.msgBox('シートの初期化', '実行していいですか', Browser.Buttons.OK_CANCEL) === 'cancel') {
+    return
+  }
   sheet.clear();
 
   for (i = 1; i <= 10; i++) {
@@ -12,9 +15,9 @@ function initSheet() {
                  Math.floor(Math.random() * 101)
     ]);
   }
-
+  
   sheet.getRange(1, 1, 10, 2).setValues(scores);
-
+  
   Logger.log(new Date() - startTime);
 }
 
@@ -23,9 +26,9 @@ function showResults() {
   var scores = [];
   var i;
   var results = [];
-
+  
   scores = sheet.getRange(1, 2, 10, 1).getValues();
-
+  
   for (i = 0; i < scores.length; i++) {
     results.push([scores[i] >= 80 ? 'Pass' : 'Fail']);
   }
