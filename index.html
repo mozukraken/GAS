@@ -4,19 +4,11 @@
     <base target="_top">
   </head>
   <body>
-    <h1>My Task</h1>
+    <h1><?= title ?></h1>
     <ul>
-      <li>Task</li>
-      <li>Task</li>
-      <li>Task</li>
+      <? for (var i = 0; i < tasks.length; i++) { ?>
+      <li><?= tasks[i] ?></li>
+      <? } ?>
     </ul>
   </body>
 </html>
-
-
-
-
-
-
-
-
